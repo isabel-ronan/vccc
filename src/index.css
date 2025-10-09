@@ -1,7 +1,7 @@
 /* 
-022713 (Dark green) 046937 (Dartmouth)
-0A9245 (Sea green)  89FBC2 (Aquamarine)
-C4FDE0 (Tea green) 
+022713 (Dark Green) 046937 (Dartmouth)
+0A9245 (Sea Green)  89FBC2 (Aquamarine)
+C4FDE0 (Tea Green) 
 */
 
 /* dark theme */
@@ -17,7 +17,7 @@ C4FDE0 (Tea green)
   /* brand */
   --accent: #0A9245;
   /* primary */
-  --accent-strong: #046937;
+  --accent-strong: #0A9245;
   /* hover/active */
   --accent-soft: #89FBC2;
   /* pastel accent */
@@ -388,4 +388,85 @@ a:hover {
 /* reduce motion */
 @media (prefers-reduced-motion: reduce) {
   .theme-fab, .theme-fab:hover, .theme-fab:active { transition: none; }
+}
+
+
+/* menu dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.dropdown-trigger {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+  padding: .3rem .5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+}
+.dropdown-trigger:hover,
+.dropdown-trigger:focus-visible {
+  border-color: var(--border);
+  color: var(--text);
+}
+.dropdown-trigger.active {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;               
+  left: 0;
+  display: none;            
+  min-width: 220px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  padding: .4rem;
+  z-index: 30;
+}
+
+.submenu::before {
+  content: "";
+  position: absolute;
+  top: -8px; left: 0; right: 0; height: 8px;
+}
+
+.dropdown.open .submenu {
+  display: grid;
+  gap: .25rem;
+  animation: menuIn .15s ease;
+}
+
+.submenu-item {
+  padding: .5rem .6rem;
+  border-radius: 8px;
+  color: var(--muted);
+  text-decoration: none;
+  display: block;
+}
+.submenu-item:hover,
+.submenu-item.active {
+  background: color-mix(in oklab, var(--accent-soft) 40%, transparent);
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .dropdown { width: 100%; }
+  .dropdown-trigger { width: 100%; text-align: left; }
+  .submenu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    padding: .4rem 0 0;
+    border: 0;
+    background: transparent;
+  }
+  .dropdown.open .submenu { display: grid; }
+  .submenu-item { padding: .5rem 0; }
 }

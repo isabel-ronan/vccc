@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
-import Knowledge from './components/Knowledge.jsx'
+import Treatment from './components/Treatment.jsx'
+import Cancer from './components/Cancer.jsx'
 import SeekingSupport from './components/SeekingSupport.jsx'
 import DailyCare from './components/DailyCare.jsx'
 import SkillsTraining from './components/SkillsTraining.jsx'
@@ -18,9 +19,8 @@ export default function App() {
       <main className="container">
         <Routes>
           <Route path="/" element={<Hero />} />
-          <Route path="/knowledge" element={<Knowledge />} />
-
-          {/* ISABEL HERE */}
+          <Route path="/treatment" element={<Treatment />} />
+          <Route path="/cancer" element={<Cancer />} />
           <Route path="/seekingSupport" element={<SeekingSupport />} />
           <Route path="/dailyCare" element={<DailyCare />} />
           <Route path="/skillsTraining" element={<SkillsTraining />} />

@@ -17,13 +17,14 @@ function useTheme() {
 }
 
 export default function Navbar() {
-  const { theme, toggle } = useTheme()
   const [open, setOpen] = useState(false)
+  const [openDD, setOpenDD] = useState(false)
   const location = useLocation()
   const menuRef = useRef(null)
   const btnRef = useRef(null)
+  const ddRef = useRef(null)
 
-  useEffect(() => setOpen(false), [location.pathname])
+  useEffect(() => { setOpen(false); setOpenDD(false) }, [location.pathname])
 
   useEffect(() => {
     const onDocClick = (e) => {
@@ -31,8 +32,9 @@ export default function Navbar() {
       if (menuRef.current?.contains(e.target)) return
       if (btnRef.current?.contains(e.target)) return
       setOpen(false)
+      setOpenDD(false)
     }
-    const onEsc = (e) => e.key === 'Escape' && setOpen(false)
+    const onEsc = (e) => e.key === 'Escape' && (setOpen(false), setOpenDD(false))
     document.addEventListener('click', onDocClick)
     document.addEventListener('keydown', onEsc)
     return () => {
@@ -44,6 +46,11 @@ export default function Navbar() {
   const linkStyle = ({ isActive }) => ({
     color: isActive ? 'var(--text)' : 'var(--muted)',
     fontWeight: isActive ? 700 : 400,
+  })
+
+  const knowledgeActivity = ({
+    color: location.pathname.startsWith('/cancer') || location.pathname.startsWith('/treatment') ? 'var(--text)' : 'var(--muted)',
+    fontWeight: location.pathname.startsWith('/cancer') || location.pathname.startsWith('/treatment') ? 700 : 400,
   })
 
   return (
@@ -74,13 +81,48 @@ export default function Navbar() {
           className={`menu ${open ? 'open' : ''}`}
           aria-label="Main"
         >
-          <NavLink className="navLinks" to="/knowledge" style={linkStyle}>Knowledge</NavLink>
-          <NavLink className="navLinks" to="/seekingSupport" style={linkStyle}>Seeking Support</NavLink>
-          <NavLink className="navLinks" to="/dailyCare" style={linkStyle}>Daily Care</NavLink>
-          <NavLink className="navLinks" to="/skillsTraining" style={linkStyle}>Skills Training</NavLink>
-          <NavLink className="navLinks" to="/traditionalMedicine" style={linkStyle}>Traditional Medicine</NavLink>
-          <NavLink className="navLinks" to="/nutrition" style={linkStyle}>Nutrition</NavLink>
-          <NavLink className="navLinks" to="/psychologicalSupport" style={linkStyle}>Psychological Support</NavLink>
+          
+
+
+
+          {/* Knowledge dropdown */}
+          <div
+            className={`dropdown ${openDD ? 'open' : ''}`}
+            onMouseEnter={() => setOpenDD(true)}
+            onMouseLeave={() => setOpenDD(false)}
+          >
+            {/* The button controls the submenu (good for mobile / keyboard) */}
+            <button
+              className={`dropdown-trigger`}
+              aria-haspopup="menu"
+              aria-expanded={openDD}
+              aria-controls="knowledge-submenu"
+              onClick={() => setOpenDD(v => !v)}
+              style={knowledgeActivity}
+            >
+              Knowledge ▾
+            </button>
+            <div
+              id="knowledge-submenu"
+              role="menu"
+              ref={ddRef}
+              className="submenu"
+            >
+              <NavLink role="menuitem" to="/cancer" className="submenu-item" onClick={() => { setOpen(false); setOpenDD(false); }}>Cancer Information</NavLink>
+              <NavLink role="menuitem" to="/treatment" className="submenu-item" onClick={() => { setOpen(false); setOpenDD(false); }}>Treatment</NavLink>
+            </div>
+          </div>
+
+
+
+
+          
+          <NavLink className="navLinks" to="/seekingSupport" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Seeking Support</NavLink>
+          <NavLink className="navLinks" to="/dailyCare" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Daily Care</NavLink>
+          <NavLink className="navLinks" to="/skillsTraining" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Skills Training</NavLink>
+          <NavLink className="navLinks" to="/traditionalMedicine" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Traditional Medicine</NavLink>
+          <NavLink className="navLinks" to="/nutrition" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Nutrition</NavLink>
+          <NavLink className="navLinks" to="/psychologicalSupport" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Psychological Support</NavLink>
         </nav>
       </div>
     </header>
