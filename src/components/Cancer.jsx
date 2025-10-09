@@ -2,7 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { cancer_info } from './cancer-info.js'
+import { cancer_info } from './cancer-info.js';
+import { instrument_info } from './instrument-info.js';
+import Reveal from './Reveal.jsx';
+
 
 function applyRegionTags(gltfScene) {
   const REGION_RULES = [
@@ -38,7 +41,9 @@ function getInfoFor(sex, region) {
 }
 
 export default function Cancer() {
-  const mountRef = useRef(null);
+  const base = import.meta.env.BASE_URL || '/'; // to work locally and on GitHub
+
+  const bodyRef = useRef(null);
   const loadModelRef = useRef(null);        // call loader after mount
   const clearHighlightRef = useRef(() => { }); // <- clear highlight before swap
 
@@ -50,8 +55,19 @@ export default function Cancer() {
   const sexRef = useRef(sex)
   useEffect(() => { sexRef.current = sex }, [sex])
 
+  const instRef = useRef(null);
+  const loadInstRef = useRef(null);        // call loader after mount
+
+  const [inst, setInst] = useState('ct'); // 'ct' | 'mri' | 'mammography' | 'ultrasound' | 'xray'
+  // const [selectedInsr, setSelectedInst] = useState(null);
+  const [loadingInst, setLoadingInst] = useState(true);
+
+  // use latest instrument (avoiding description issues)
+  const instTypeRef = useRef(inst)
+  useEffect(() => { instTypeRef.current = inst }, [inst])
+
   useEffect(() => {
-    const container = mountRef.current;
+    const container = bodyRef.current;
     if (!container) return;
 
     // scene, camera, renderer setup
@@ -116,7 +132,6 @@ export default function Cancer() {
     }
 
     const loader = new GLTFLoader();
-    const base = import.meta.env.BASE_URL || '/'; // to work locally and on GitHub
     let loadToken = 0; // to avoid bad conditions on fast toggles
 
     async function loadModelForSex(sexVal) {
@@ -240,65 +255,269 @@ export default function Cancer() {
     loadModelRef.current?.(sex);
   }, [sex]);
 
+  useEffect(() => {
+    const container = instRef.current
+    if (!container) return
+
+    const scene = new THREE.Scene()
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.05, 100)
+    camera.position.set(0.4, 0.3, 1.2)
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    renderer.setSize(container.clientWidth, container.clientHeight)
+    container.appendChild(renderer.domElement)
+
+    const hemi = new THREE.HemisphereLight(0xffffff, 0x223322, 1.0)
+    const key = new THREE.DirectionalLight(0xffffff, 0.9)
+    key.position.set(2, 3, 4)
+    scene.add(hemi)
+    scene.add(key)
+
+    const controls = new OrbitControls(camera, renderer.domElement)
+    controls.enableDamping = true
+    controls.minDistance = 0.3
+    controls.maxDistance = 3
+
+    const loader = new GLTFLoader()
+    let currentRoot = new THREE.Group()
+    scene.add(currentRoot)
+
+    const fitCameraToObject = (obj) => {
+      const box = new THREE.Box3().setFromObject(obj)
+      const size = new THREE.Vector3(); box.getSize(size)
+      const center = new THREE.Vector3(); box.getCenter(center)
+      controls.target.copy(center)
+      const maxDim = Math.max(size.x, size.y, size.z)
+      const fov = THREE.MathUtils.degToRad(camera.fov)
+      const dist = Math.abs(maxDim / (2 * Math.tan(fov / 2))) * 1.2
+      camera.position.set(center.x, center.y + dist * 0.3, dist)
+      camera.lookAt(center)
+      controls.update()
+    }
+
+    async function loadInstrument(which) {
+      setLoadingInst(true)
+      scene.remove(currentRoot)
+      currentRoot.traverse(o => o.isMesh && (o.geometry?.dispose(), o.material?.dispose?.()))
+      currentRoot = new THREE.Group()
+      scene.add(currentRoot)
+
+      switch (which) {
+        case 'mri':
+          hemi.intensity = 5
+          key.intensity = 1.5
+          key.color.set(0x88bbff)
+          break
+        case 'ct':
+          hemi.intensity = 0.8
+          key.intensity = 5
+          key.color.set(0xffffff)
+          break
+        case 'xray':
+          hemi.intensity = 1.3
+          key.intensity = 5
+          key.color.set(0xfefefe)
+          break
+        case 'ultrasound':
+          hemi.intensity = 0.7
+          key.intensity = 5
+          key.color.set(0xfff6e8)
+          break
+        case 'mammography':
+          hemi.intensity = 0.6
+          key.intensity = 1.5
+          key.color.set(0xffe8d0)
+          break
+        default:
+          hemi.intensity = 1.0
+          key.intensity = 0.9
+          key.color.set(0xffffff)
+          break
+      }
+
+      const url = `${base}models/${which}.glb`
+      loader.load(url, gltf => {
+        const model = gltf.scene
+        model.traverse(o => {
+          if (o.isMesh) {
+            if (!o.material) {
+              o.material = new THREE.MeshStandardMaterial({ color: 0xC4FDE0, roughness: 0.6 })
+            }
+          }
+        })
+        const box = new THREE.Box3().setFromObject(model)
+        const size = new THREE.Vector3(); box.getSize(size)
+        const scale = 0.6 / Math.max(size.y || size.x || size.z || 1e-3, 1e-3)
+        model.scale.setScalar(scale)
+        currentRoot.add(model)
+        fitCameraToObject(model)
+        setLoadingInst(false)
+      }, undefined, (err) => {
+        console.error('Instrument GLB load error', err)
+        setLoadingInst(false)
+      })
+    }
+
+    loadInstRef.current = loadInstrument
+    loadInstrument(inst)
+
+
+
+    const onResize = () => {
+      const w = container.clientWidth, h = container.clientHeight
+      camera.aspect = w / h
+      camera.updateProjectionMatrix()
+      renderer.setSize(w, h)
+    }
+    window.addEventListener('resize', onResize)
+
+    let raf
+    const animate = () => {
+      raf = requestAnimationFrame(animate)
+      controls.update()
+      renderer.render(scene, camera)
+    }
+    animate()
+
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('resize', onResize)
+      controls.dispose()
+      renderer.dispose()
+      scene.traverse(o => {
+        if (o.isMesh) { o.geometry?.dispose(); o.material?.dispose?.() }
+      })
+      if (renderer.domElement.parentNode === container) {
+        container.removeChild(renderer.domElement)
+      }
+
+    }
+  }, [])
+
+  useEffect(() => {
+    loadInstRef.current?.(inst)
+  }, [inst])
+
+
   return (
     <section className="section">
-      <h2>Common Cancers and Their Causes</h2>
-
-
-
-      <div style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'center' }}>
-        <div className="canvas-shell" ref={mountRef} style={{ flex: 1 }} />
-
-        <div className="card"  style={{flex:1, display: 'flex', flexDirection:'column', alignItems: 'stretch', justifyContent: 'stretch' }}>
-          <div style={{ flex:1, display: 'flex', alignItems: 'center'}}>
-            <div role="group" aria-label="Select body">
-              <button
-                className={`btn ${sex === 'female' ? '' : 'btn--outline'}`}
-                onClick={() => setSex('female')}
-                aria-pressed={sex === 'female'}
-              >
-                Female
-              </button>
-              <button
-                className={`btn ${sex === 'male' ? '' : 'btn--outline'}`}
-                style={{ marginLeft: '.5rem' }}
-                onClick={() => setSex('male')}
-                aria-pressed={sex === 'male'}
-              >
-                Male
-              </button>
-            </div>
-            {loading && <span className="tag">Loading model…</span>}
-          </div>
-          <div style={{flex:5}}>
-            {selected ? (
-              <>
-                <h3 style={{ marginTop: 0 }}>
-                  {selected.region.match(/[A-Z][a-z]+/g).join(' ')} — {sex === 'female' ? 'Female' : 'Male'}
-                </h3>
-                {selected.items.length ? (
-                  <ul style={{ marginTop: '.5rem' }}>
-                    {selected.items.map((it, idx) => (
-                      <li key={idx}>
-                        <strong>{it.name}</strong>{it.note ? ` — ${it.note}` : ''}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p style={{ color: 'var(--muted)' }}>No information yet on this region...</p>
-                )}
-                <button className="btn btn--outline" style={{ marginTop: '.75rem' }} onClick={() => setSelected(null)}>
-                  Clear Selection
+      <Reveal dir="left" delay={2}>
+        <h2>Common Cancers and Their Causes</h2>
+        <div style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'center' }}>
+          <div className="canvas-shell" ref={bodyRef} style={{ flex: 1 }} />
+          <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'stretch' }}>
+            <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
+              <div role="group" aria-label="Select body">
+                <button
+                  className={`btn ${sex === 'female' ? '' : 'btn--outline'}`}
+                  onClick={() => setSex('female')}
+                  aria-pressed={sex === 'female'}
+                >
+                  Female
                 </button>
-              </>
-            ) : (
-              <p style={{ margin: 0, color: 'var(--muted)' }}>
-                Hover to highlight a body region. Click a body region to see associated cancers and common causes.
-              </p>
-            )}
+                <button
+                  className={`btn ${sex === 'male' ? '' : 'btn--outline'}`}
+                  style={{ marginLeft: '.5rem' }}
+                  onClick={() => setSex('male')}
+                  aria-pressed={sex === 'male'}
+                >
+                  Male
+                </button>
+              </div>
+              {loading && <span className="tag">Loading model…</span>}
+            </div>
+            <div style={{ flex: 5 }}>
+              {selected ? (
+                <>
+                  <h3 style={{ marginTop: 0 }}>
+                    {selected.region.match(/[A-Z][a-z]+/g).join(' ')} — {sex === 'female' ? 'Female' : 'Male'}
+                  </h3>
+                  {selected.items.length ? (
+                    <ul style={{ marginTop: '.5rem' }}>
+                      {selected.items.map((it, idx) => (
+                        <li key={idx}>
+                          <strong>{it.name}</strong>{it.note ? ` — ${it.note}` : ''}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p style={{ color: 'var(--muted)' }}>No information yet on this region...</p>
+                  )}
+                  <button className="btn btn--outline" style={{ marginTop: '.75rem' }} onClick={() => setSelected(null)}>
+                    Clear Selection
+                  </button>
+                </>
+              ) : (
+                <p style={{ margin: 0, color: 'var(--muted)' }}>
+                  Hover to highlight a body region. Click a body region to see associated cancers and common causes.
+                </p>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Reveal>
+
+
+      <Reveal dir="right" delay={3}>
+        <h2>Diagnosis</h2>
+        <div style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'center' }}>
+          <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'stretch' }}>
+            <div style={{ marginBottom: '.5rem' }}>
+              <button
+                className={`btn ${inst === 'ct' ? '' : 'btn--outline'}`}
+                onClick={() => setInst('ct')}
+              >
+                CT/PET Scanner
+              </button>
+              <button
+                className={`btn ${inst === 'mammography' ? '' : 'btn--outline'}`}
+                onClick={() => setInst('mammography')}
+                style={{ marginLeft: '.5rem' }}
+              >
+                Mammography
+              </button>
+              <button
+                className={`btn ${inst === 'mri' ? '' : 'btn--outline'}`}
+                onClick={() => setInst('mri')}
+                style={{ marginLeft: '.5rem' }}
+              >
+                MRI
+              </button>
+              <button
+                className={`btn ${inst === 'ultrasound' ? '' : 'btn--outline'}`}
+                onClick={() => setInst('ultrasound')}
+                style={{ marginLeft: '.5rem' }}
+              >
+                Ultrasound
+              </button>
+              <button
+                className={`btn ${inst === 'xray' ? '' : 'btn--outline'}`}
+                onClick={() => setInst('xray')}
+                style={{ marginLeft: '.5rem' }}
+              >
+                X-Ray
+              </button>
+              {loadingInst && <span className="tag" style={{ marginLeft: '.5rem' }}>Loading…</span>}
+            </div>
+            <p style={{ color: 'var(--muted)' }}>
+              More information on diagnosis here.
+              Rotate and zoom the instrument to explore its design.
+            </p>
+            {instrument_info[inst.toLowerCase()]?.map((info, idx) => (
+              <p key={idx} style={{ marginTop: '.5rem' }}>
+                <strong>{info.description}</strong> — {info.note}
+              </p>
+            ))}
+          </div>
+          <div className="canvas-shell" ref={instRef} style={{ flex: 1 }} />
+        </div>
+      </Reveal>
+
+      <Reveal dir="left" delay={4}>
+        <h2>Treatment</h2>
+        <div className='card'>Information on different treatment types here.</div>
+      </Reveal>
     </section>
   );
 }

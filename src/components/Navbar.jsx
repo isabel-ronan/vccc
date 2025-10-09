@@ -48,7 +48,7 @@ export default function Navbar() {
     fontWeight: isActive ? 700 : 400,
   })
 
-  const knowledgeActivity = ({
+  const psychologicalActivity = ({
     color: location.pathname.startsWith('/cancer') || location.pathname.startsWith('/treatment') ? 'var(--text)' : 'var(--muted)',
     fontWeight: location.pathname.startsWith('/cancer') || location.pathname.startsWith('/treatment') ? 700 : 400,
   })
@@ -81,9 +81,16 @@ export default function Navbar() {
           className={`menu ${open ? 'open' : ''}`}
           aria-label="Main"
         >
-          
 
 
+
+
+          <NavLink className="navLinks" to="/cancer" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Knowledge</NavLink>
+          <NavLink className="navLinks" to="/seekingSupport" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Seeking Support</NavLink>
+          <NavLink className="navLinks" to="/dailyCare" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Daily Care</NavLink>
+          <NavLink className="navLinks" to="/skillsTraining" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Skills Training</NavLink>
+          <NavLink className="navLinks" to="/traditionalMedicine" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Traditional Medicine</NavLink>
+          <NavLink className="navLinks" to="/nutrition" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Nutrition</NavLink>
 
           {/* Knowledge dropdown */}
           <div
@@ -98,9 +105,9 @@ export default function Navbar() {
               aria-expanded={openDD}
               aria-controls="knowledge-submenu"
               onClick={() => setOpenDD(v => !v)}
-              style={knowledgeActivity}
+              style={psychologicalActivity}
             >
-              Knowledge ▾
+              Psychological Support ▾
             </button>
             <div
               id="knowledge-submenu"
@@ -108,21 +115,10 @@ export default function Navbar() {
               ref={ddRef}
               className="submenu"
             >
-              <NavLink role="menuitem" to="/cancer" className="submenu-item" onClick={() => { setOpen(false); setOpenDD(false); }}>Cancer Information</NavLink>
-              <NavLink role="menuitem" to="/treatment" className="submenu-item" onClick={() => { setOpen(false); setOpenDD(false); }}>Treatment</NavLink>
+              <NavLink role="menuitem" to="/selfCare" className="submenu-item" onClick={() => { setOpen(false); setOpenDD(false); }}>Self-Care Corner</NavLink>
+              <NavLink role="menuitem" to="/" className="submenu-item" onClick={() => { setOpen(false); setOpenDD(false); }}>Placeholder Example</NavLink>
             </div>
           </div>
-
-
-
-
-          
-          <NavLink className="navLinks" to="/seekingSupport" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Seeking Support</NavLink>
-          <NavLink className="navLinks" to="/dailyCare" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Daily Care</NavLink>
-          <NavLink className="navLinks" to="/skillsTraining" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Skills Training</NavLink>
-          <NavLink className="navLinks" to="/traditionalMedicine" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Traditional Medicine</NavLink>
-          <NavLink className="navLinks" to="/nutrition" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Nutrition</NavLink>
-          <NavLink className="navLinks" to="/psychologicalSupport" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Psychological Support</NavLink>
         </nav>
       </div>
     </header>
