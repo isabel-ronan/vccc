@@ -1,7 +1,7 @@
 # Code for VCCC Website
 
 ## 3D Models
-### Humans From Sketchfab
+### Models From Sketchfab
 
 [Man](https://sketchfab.com/3d-models/human-body-base-mesh-male-3678451d8ccb435e833f8a10729c09f5). "Human Body Base Mesh Male" (https://skfb.ly/pzC6D) by ferrumiron6 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
 
@@ -25,3 +25,21 @@
 
 
 [Mammogram Machine](https://sketchfab.com/3d-models/fora-mammografia1livello-sitoweb-duplicato-2-647e906c92694b30bc6e659037e5068a). "Fora_Mammografia1°Livello SitoWeb - Duplicato 2" (https://skfb.ly/oSu8C) by 0 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+## Soundscapes and Music
+
+### Urban Night
+- Chatter and Ambience: https://freesound.org/people/zanwilliams190164/sounds/492319/
+- Music: https://freesound.org/people/Migfus20/sounds/564001/
+
+### Dawn Chorus
+- Birds: https://freesound.org/people/AmbientSoundscapes/sounds/33513/
+- Stream: https://freesound.org/people/dannydandanshababaloo/sounds/593195/
+
+### Ocean
+- Ambience: https://freesound.org/people/tomtenney/sounds/125224/
+- Ocean: https://freesound.org/people/dappen/sounds/629531/
+- Seagulls + Ocean: https://freesound.org/people/jmhoov13/sounds/641426/
+
+### Forest
+- Ambience: https://pixabay.com/users/audiopapkin-14728698/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=296528
