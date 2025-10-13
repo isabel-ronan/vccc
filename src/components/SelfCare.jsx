@@ -3,15 +3,15 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 const THEMES = [
-    { name: "Ocean", bg: 0x000726, fg: 0x4868f7, accent: 0x677acf, particles: 0xafbdfa, sound: 'island.wav' },
-    { name: "Forest", bg: 0x011c0d, fg: 0x016b30, accent: 0x56c488, particles: 0x8dd6ae, sound: 'forest.wav' },
-    { name: "Dawn", bg: 0x1c0000, fg: 0x6e0517, accent: 0xb0253d, particles: 0xed9fac, sound: 'nature.wav' },
-    { name: "Evening", bg: 0x000000, fg: 0x4d4949, accent: 0xcfcccc, particles: 0xf0f0f0, sound: 'coffeeShop.wav' },
+    { name: "Đại Dương", bg: 0x000726, fg: 0x4868f7, accent: 0x677acf, particles: 0xafbdfa, sound: 'island.wav' },
+    { name: "Rừng", bg: 0x011c0d, fg: 0x016b30, accent: 0x56c488, particles: 0x8dd6ae, sound: 'forest.wav' },
+    { name: "Bình Minh", bg: 0x1c0000, fg: 0x6e0517, accent: 0xb0253d, particles: 0xed9fac, sound: 'nature.wav' },
+    { name: "Chiều Tối", bg: 0x000000, fg: 0x4d4949, accent: 0xcfcccc, particles: 0xf0f0f0, sound: 'coffeeShop.wav' },
 ];
 
 const PATTERNS = {
-    "Coherent (5–5)": [5, 0, 5, 0],   // inhale, hold1, exhale, hold2
-    "Box (4–4–4–4)": [4, 4, 4, 4],
+    "Nhịp Thở Hài Hòa (5–5)": [5, 0, 5, 0],   // inhale, hold1, exhale, hold2
+    "Hộp (4–4–4–4)": [4, 4, 4, 4],
     "4–7–8": [4, 7, 8, 0],
 };
 
@@ -28,7 +28,7 @@ export default function SelfCare() {
 
     const [running, setRunning] = useState(true);
     const [themeIdx, setThemeIdx] = useState(0);
-    const [patternKey, setPatternKey] = useState("Coherent (5–5)");
+    const [patternKey, setPatternKey] = useState("Nhịp Thở Hài Hòa (5–5)");
     const [intensity, setIntensity] = useState(1.0);
     const [speed, setSpeed] = useState(1.0);
     const [hideUI, setHideUI] = useState(false);
@@ -201,8 +201,8 @@ export default function SelfCare() {
         const setCue = (phase) => {
             const cue = cueRef.current, sub = subRef.current;
             if (!cue) return;
-            const labels = ["Inhale", "Hold", "Exhale", "Hold"];
-            const subs = ["Breathe In", "Stay", "Breathe Out", "Stay"];
+        const labels = ["Hít vào", "Giữ", "Thở ra", "Giữ"];
+        const subs = ["Hít vào", "Giữ hơi thở", "Thở ra", "Giữ hơi thở"];
             if (phase !== lastPhase) {
                 lastPhase = phase;
                 cue.style.opacity = 0; if (sub) sub.style.opacity = 0;
@@ -335,7 +335,6 @@ export default function SelfCare() {
             stopSound();
         }
     };
-
     return (
         <div style={{ position: "relative", width: "100vw", height: "100vh", overflow: "hidden" }}>
             <div ref={mountRef} style={{ width: "100%", height: "100%" }} />
@@ -350,10 +349,10 @@ export default function SelfCare() {
                 }}
             >
                 <div ref={cueRef} style={{ fontSize: "clamp(28px, 6vw, 64px)", letterSpacing: "0.02em", transition: "opacity 140ms ease", opacity: 1, fontWeight: 600 }}>
-                    Inhale
+                    Hít vào
                 </div>
                 <div ref={subRef} style={{ fontSize: "clamp(14px, 2.7vw, 18px)", marginTop: 6, opacity: 0.8, transition: "opacity 140ms ease" }}>
-                    Breathe in
+                    Hít vào
                 </div>
             </div>
 
@@ -370,32 +369,32 @@ export default function SelfCare() {
                         <div style={panelStyle}>
                             <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8, flexWrap: "wrap" }}>
                                 <button onClick={() => setRunning((r) => !r)} style={btnStyle}>
-                                    {running ? "Pause" : "Start"}
+                                    {running ? "Tạm dừng" : "Bắt đầu"}
                                 </button>
 
-                                <select value={patternKey} onChange={(e) => setPatternKey(e.target.value)} style={selStyle} aria-label="Breathing pattern">
+                                <select value={patternKey} onChange={(e) => setPatternKey(e.target.value)} style={selStyle} aria-label="Mẫu thở">
                                     {Object.keys(PATTERNS).map((k) => <option key={k} value={k}>{k}</option>)}
                                 </select>
 
-                                <select value={themeIdx} onChange={(e) => setThemeIdx(Number(e.target.value))} style={selStyle} aria-label="Theme">
+                                <select value={themeIdx} onChange={(e) => setThemeIdx(Number(e.target.value))} style={selStyle} aria-label="Chủ đề">
                                     {THEMES.map((t, i) => <option key={t.name} value={i}>{t.name}</option>)}
                                 </select>
 
-                                <button onClick={toggleSound} style={ghostBtnStyle} aria-label="Toggle calming sound">
-                                    {soundOn ? "Sound: On" : "Sound: Off"}
+                                <button onClick={toggleSound} style={ghostBtnStyle} aria-label="Bật/Tắt âm thanh thư giãn">
+                                    {soundOn ? "Âm thanh: Bật" : "Âm thanh: Tắt"}
                                 </button>
                             </div>
 
-                            <LabeledSlider label="Intensity" min={0.7} max={1.5} step={0.01} value={intensity} onChange={setIntensity} />
-                            <LabeledSlider label="Speed" min={0.6} max={1.6} step={0.01} value={speed} onChange={setSpeed} help="(higher = faster cycle)" />
+                            <LabeledSlider label="Cường độ" min={0.7} max={1.5} step={0.01} value={intensity} onChange={setIntensity} />
+                            <LabeledSlider label="Tốc độ" min={0.6} max={1.6} step={0.01} value={speed} onChange={setSpeed} help="(cao hơn = chu kỳ nhanh hơn)" />
 
                             <div style={{ marginTop: 6, fontSize: 12, opacity: 0.75 }}>
-                                Shortcuts: Space – start/pause • ←/→ theme • H – hide UI • S – sound
+                                Phím tắt: Space – bắt đầu/tạm dừng • ←/→ chủ đề • H – ẩn giao diện • S – âm thanh
                             </div>
                         </div>
                     </div>
                     <div style={{ justifySelf: "end", pointerEvents: "auto" }}>
-                        <button onClick={() => setHideUI(true)} style={ghostBtnStyle} aria-label="Hide UI">Hide UI (H)</button>
+                        <button onClick={() => setHideUI(true)} style={ghostBtnStyle} aria-label="Ẩn giao diện">Ẩn giao diện (H)</button>
                     </div>
                 </div>
             )}
@@ -404,7 +403,7 @@ export default function SelfCare() {
                     onClick={() => setHideUI(false)}
                     style={{ position: "absolute", right: 16, top: 16, padding: "8px 12px", borderRadius: 12, background: "rgba(0,0,0,0.35)", color: "white", border: "1px solid rgba(255,255,255,0.1)", fontFamily: "system-ui, sans-serif" }}
                 >
-                    Show UI
+                    Hiện giao diện
                 </button>
             )}
         </div>

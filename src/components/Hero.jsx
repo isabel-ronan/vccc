@@ -1,4 +1,3 @@
-// src/components/Hero.jsx
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import * as THREE from 'three';
@@ -26,7 +25,6 @@ export default function Hero() {
     geometry = new THREE.BufferGeometry();
     const vertices = [];
 
-    // Load sprite texture from public folder
     sprite = new THREE.TextureLoader().load(`${base}textures/disc.png`);
     sprite.colorSpace = THREE.SRGBColorSpace;
 
@@ -51,24 +49,17 @@ export default function Hero() {
     particles = new THREE.Points(geometry, material);
     scene.add(particles);
 
-    // Renderer
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth, window.innerHeight);
     mountRef.current.appendChild(renderer.domElement);
 
-
-
- 
-
-    // Pointer move listener
     const onPointerMove = (event) => {
       if (!event.isPrimary) return;
       mouseX = event.clientX - windowHalfX;
       mouseY = event.clientY - windowHalfY;
     };
 
-    // Resize
     const onWindowResize = () => {
       windowHalfX = window.innerWidth / 2;
       windowHalfY = window.innerHeight / 2;
@@ -80,7 +71,6 @@ export default function Hero() {
     document.addEventListener('pointermove', onPointerMove);
     window.addEventListener('resize', onWindowResize);
 
-    // Animation loop
     const animate = () => {
       const time = Date.now() * 0.00005;
 
@@ -98,7 +88,6 @@ export default function Hero() {
 
     animate();
 
-    // Cleanup
     return () => {
       window.removeEventListener('resize', onWindowResize);
       document.removeEventListener('pointermove', onPointerMove);

@@ -5,7 +5,19 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { cancer_info } from './cancer-info.js';
 import { instrument_info } from './instrument-info.js';
 import Reveal from './Reveal.jsx';
+import SlidingCards from './SlidingCards.jsx';
 
+
+const translation_of_types = {
+  'Head': 'Đầu',
+  'Chest': 'Ngực',
+  'Abdomen': 'Bụng',
+  'Pelvis': 'Khung chậu',
+  'Left Arm': 'Tay trái',
+  'Right Arm': 'Tay phải',
+  'Left Leg': 'Chân trái',
+  'Right Leg': 'Chân phải',
+}
 
 function applyRegionTags(gltfScene) {
   const REGION_RULES = [
@@ -41,6 +53,7 @@ function getInfoFor(sex, region) {
 }
 
 export default function Cancer() {
+
   const base = import.meta.env.BASE_URL || '/'; // to work locally and on GitHub
 
   const bodyRef = useRef(null);
@@ -399,22 +412,54 @@ export default function Cancer() {
     loadInstRef.current?.(inst)
   }, [inst])
 
-
   return (
     <section className="section">
+      <Reveal dir="right" delay={1}>
+        <div style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'center' }}>
+          <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'row', alignItems: 'stretch', justifyContent: 'stretch'}}>
+            <div className="card" style={{ flex: 1, overflowY: 'auto', height: '75vh'}}>
+              <h2>Ung thư là gì?</h2>
+              <p>Ung thư là căn bệnh của các tế bào. Tế bào là những khối xây dựng căn bản của cơ thể con người. Cơ thể chúng ta được tạo nêu từ nhiều dạng tế bào khác nhau như tế bào xương, da và máu.</p>
+              <p>
+                Ung thư là gì?
+                Ung thư là căn bệnh của các tế bào. Tế bào là những khối xây dựng căn bản của cơ thể con người. Cơ thể chúng ta được tạo nêu từ nhiều dạng tế bào khác nhau như tế bào xương, da và máu.
+                Các tế bào bất thường tập hợp với nhau và tạo thành một cái bứu gọi là khối u. Có hai loại khối u:
+              </p>
+              <ul>
+                <li>
+                  Các U Lành tính không phải là ung thư. Chúng không lan ra những phần khác của cơ thể.
+                </li>
+                <li>
+                  Các U Ác tính là ung thư. Chúng có thể lan ra các phần khác của cơ thể.
+                </li>
+              </ul>
+              <img src={`${base}images/cancer.png`}/>
+            </div>
+
+            <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '75vh'}}>
+              <h2>Những quan niệm sai lầm về ung thư</h2>
+              <p>Một ngày sau khi đi kiểm tra sức khỏe, bạn biết mình bị ung thư và cho rằng, mình đã mang án tử hình, điều đó là hoàn toàn sai lầm. Nếu tuân thủ việc khám sức khỏe và lộ trình điều trị của bác sĩ, bạn vẫn có thể sống khỏe tới già bởi nhiều loại ung thư có thể chữa khỏi tới 90%.</p>
+              <div className="card" style={{ flex: 1, overflowY: 'auto'}}>
+                <SlidingCards />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
       <Reveal dir="left" delay={2}>
-        <h2>Common Cancers and Their Causes</h2>
+        <h2>Các loại ung thư thường gặp và nguyên nhân</h2>
         <div style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'center' }}>
           <div className="canvas-shell" ref={bodyRef} style={{ flex: 1 }} />
           <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'stretch' }}>
             <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
-              <div role="group" aria-label="Select body">
+              <div role="group" aria-label="Chọn cơ thể">
                 <button
                   className={`btn ${sex === 'female' ? '' : 'btn--outline'}`}
                   onClick={() => setSex('female')}
                   aria-pressed={sex === 'female'}
                 >
-                  Female
+                  Nữ
                 </button>
                 <button
                   className={`btn ${sex === 'male' ? '' : 'btn--outline'}`}
@@ -422,16 +467,16 @@ export default function Cancer() {
                   onClick={() => setSex('male')}
                   aria-pressed={sex === 'male'}
                 >
-                  Male
+                  Nam
                 </button>
               </div>
-              {loading && <span className="tag">Loading model…</span>}
+              {loading && <span className="tag">Đang tải mô hình…</span>}
             </div>
             <div style={{ flex: 5 }}>
               {selected ? (
                 <>
                   <h3 style={{ marginTop: 0 }}>
-                    {selected.region.match(/[A-Z][a-z]+/g).join(' ')} — {sex === 'female' ? 'Female' : 'Male'}
+                    {translation_of_types[selected.region.match(/[A-Z][a-z]+/g).join(' ')]} — {sex === 'female' ? 'Nữ' : 'Nam'}
                   </h3>
                   {selected.items.length ? (
                     <ul style={{ marginTop: '.5rem' }}>
@@ -442,15 +487,15 @@ export default function Cancer() {
                       ))}
                     </ul>
                   ) : (
-                    <p style={{ color: 'var(--muted)' }}>No information yet on this region...</p>
+                    <p style={{ color: 'var(--muted)' }}>Chưa có thông tin cho vùng này...</p>
                   )}
                   <button className="btn btn--outline" style={{ marginTop: '.75rem' }} onClick={() => setSelected(null)}>
-                    Clear Selection
+                    Bỏ chọn
                   </button>
                 </>
               ) : (
                 <p style={{ margin: 0, color: 'var(--muted)' }}>
-                  Hover to highlight a body region. Click a body region to see associated cancers and common causes.
+                  Di chuột để làm nổi bật vùng cơ thể. Nhấp vào một vùng cơ thể để xem các loại ung thư liên quan và nguyên nhân thường gặp.
                 </p>
               )}
             </div>
@@ -458,51 +503,50 @@ export default function Cancer() {
         </div>
       </Reveal>
 
-
       <Reveal dir="right" delay={3}>
-        <h2>Diagnosis</h2>
+        <h2>Chẩn đoán</h2>
         <div style={{ display: 'flex', alignItems: 'stretch', justifyContent: 'center' }}>
           <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'stretch' }}>
-            <div style={{ marginBottom: '.5rem' }}>
+            <div style={{ display:'flex' }}>
               <button
                 className={`btn ${inst === 'ct' ? '' : 'btn--outline'}`}
                 onClick={() => setInst('ct')}
               >
-                CT/PET Scanner
+                Máy chụp CT/PET
               </button>
               <button
                 className={`btn ${inst === 'mammography' ? '' : 'btn--outline'}`}
                 onClick={() => setInst('mammography')}
                 style={{ marginLeft: '.5rem' }}
               >
-                Mammography
+                Chụp nhũ ảnh
               </button>
               <button
                 className={`btn ${inst === 'mri' ? '' : 'btn--outline'}`}
                 onClick={() => setInst('mri')}
                 style={{ marginLeft: '.5rem' }}
               >
-                MRI
+                Cộng hưởng từ (MRI)
               </button>
               <button
                 className={`btn ${inst === 'ultrasound' ? '' : 'btn--outline'}`}
                 onClick={() => setInst('ultrasound')}
                 style={{ marginLeft: '.5rem' }}
               >
-                Ultrasound
+                Siêu âm
               </button>
               <button
                 className={`btn ${inst === 'xray' ? '' : 'btn--outline'}`}
                 onClick={() => setInst('xray')}
                 style={{ marginLeft: '.5rem' }}
               >
-                X-Ray
+                X-quang
               </button>
-              {loadingInst && <span className="tag" style={{ marginLeft: '.5rem' }}>Loading…</span>}
+              {loadingInst && <span className="tag" style={{ marginLeft: '.5rem' }}>Đang tải…</span>}
             </div>
             <p style={{ color: 'var(--muted)' }}>
-              More information on diagnosis here.
-              Rotate and zoom the instrument to explore its design.
+              Thông tin chi tiết về chẩn đoán sẽ được bổ sung tại đây.
+              Hãy xoay và phóng to/thu nhỏ thiết bị để khám phá cấu tạo của nó.
             </p>
             {instrument_info[inst.toLowerCase()]?.map((info, idx) => (
               <p key={idx} style={{ marginTop: '.5rem' }}>
@@ -515,8 +559,50 @@ export default function Cancer() {
       </Reveal>
 
       <Reveal dir="left" delay={4}>
-        <h2>Treatment</h2>
-        <div className='card'>Information on different treatment types here.</div>
+        <h2>Điều trị</h2>
+        <div className='card'>
+          <h3>Phẫu thuật</h3>
+        <p><strong>Mô tả:</strong> Loại bỏ khối u hoặc mô ung thư ra khỏi cơ thể bằng cách can thiệp ngoại khoa. Thường áp dụng khi khối u còn khu trú.</p>
+        <p><strong>Mục đích:</strong> Loại bỏ hoàn toàn khối u hoặc giảm kích thước khối u. Thường kết hợp với các phương pháp điều trị khác.</p>
+        <p><strong>Ví dụ:</strong> Cắt bỏ khối u vú, cắt bỏ tuyến tiền liệt.</p>
+
+        <h3>Xạ trị</h3>
+        <p><strong>Mô tả:</strong> Sử dụng tia phóng xạ năng lượng cao (như tia X hoặc tia proton) để tiêu diệt tế bào ung thư hoặc làm nhỏ khối u.</p>
+        <p><strong>Mục đích:</strong> Tiêu diệt tế bào ung thư, thường nhắm vào vùng cụ thể trong cơ thể.</p>
+        <p><strong>Các loại:</strong> Xạ trị bên ngoài, xạ trị nội bộ (brachytherapy).</p>
+
+        <h3>Hóa trị</h3>
+        <p><strong>Mô tả:</strong> Sử dụng thuốc tấn công và tiêu diệt các tế bào phân chia nhanh, bao gồm tế bào ung thư.</p>
+        <p><strong>Mục đích:</strong> Tiêu diệt tế bào ung thư trong toàn cơ thể, đặc biệt hiệu quả với ung thư đã di căn.</p>
+        <p><strong>Cách dùng:</strong> Uống, truyền tĩnh mạch hoặc các phương pháp khác.</p>
+
+        <h3>Miễn dịch trị liệu</h3>
+        <p><strong>Mô tả:</strong> Kích thích hoặc phục hồi hệ miễn dịch của cơ thể để nhận diện và tấn công tế bào ung thư.</p>
+        <p><strong>Mục đích:</strong> Tăng cường phản ứng miễn dịch hoặc loại bỏ các cơ chế ức chế hệ miễn dịch.</p>
+        <p><strong>Ví dụ:</strong> Thuốc ức chế điểm kiểm soát miễn dịch (checkpoint inhibitors), liệu pháp tế bào CAR-T, liệu pháp cytokine.</p>
+
+        <h3>Liệu pháp nhắm trúng đích</h3>
+        <p><strong>Mô tả:</strong> Sử dụng thuốc hoặc chất đặc hiệu nhằm vào các phân tử liên quan đến sự phát triển và lan rộng của ung thư.</p>
+        <p><strong>Mục đích:</strong> Can thiệp vào các con đường hoặc protein mà tế bào ung thư phụ thuộc.</p>
+        <p><strong>Ví dụ:</strong> Thuốc ức chế tyrosine kinase, kháng thể đơn dòng.</p>
+
+        <h3>Liệu pháp nội tiết</h3>
+        <p><strong>Mô tả:</strong> Ngăn chặn hoặc loại bỏ hormone mà một số loại ung thư cần để phát triển.</p>
+        <p><strong>Mục đích:</strong> Thường sử dụng cho ung thư vú và ung thư tuyến tiền liệt.</p>
+        <p><strong>Ví dụ:</strong> Tamoxifen, thuốc ức chế aromatase, liệu pháp giảm androgen.</p>
+
+        <h3>Cấy ghép tế bào gốc (cấy ghép tủy xương)</h3>
+        <p><strong>Mô tả:</strong> Thay thế tủy xương bị tổn thương hoặc hủy hoại bằng tế bào gốc khỏe mạnh.</p>
+        <p><strong>Mục đích:</strong> Thường áp dụng sau khi dùng liều cao hóa trị hoặc xạ trị để phục hồi khả năng tạo máu.</p>
+        <p><strong>Loại:</strong> Tự thân (tế bào gốc của chính bệnh nhân), đồng loại (tế bào gốc từ người cho).</p>
+
+        <h3>Y học chính xác / y học gen</h3>
+        <p><strong>Mô tả:</strong> Tùy chỉnh phương pháp điều trị dựa trên đặc điểm di truyền của khối u.</p>
+        <p><strong>Mục đích:</strong> Chọn phương pháp điều trị hiệu quả nhất dựa trên đặc tính phân tử của ung thư.</p>
+
+        <p>Mỗi phương pháp có thể dùng riêng lẻ hoặc kết hợp tùy theo loại, giai đoạn, vị trí ung thư và tình trạng sức khỏe của người bệnh.</p>
+
+        </div>
       </Reveal>
     </section>
   );
