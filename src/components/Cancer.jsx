@@ -416,7 +416,7 @@ export default function Cancer() {
     <section className="section">
       <h1>Các gia đình ở Việt Nam đã nói với chúng tôi rằng đôi khi việc hiểu về bệnh ung thư và các phương pháp điều trị ung thư là điều khó khăn. Hãy đọc bên dưới để tìm hiểu thêm thông tin...</h1>
       <Reveal dir="right" delay={1} style={{ display: 'flex', flexFlow:'row wrap'}} >
-        <div className="card" style={{ flex: 1, overflow: 'auto', height: '65vh', minWidth:'500px'}}>
+        <div className="card" style={{ flex: 1, overflow: 'auto', height: '65vh', minWidth:'350px'}}>
           <h2>Ung thư là gì?</h2>
           <p>Ung thư là căn bệnh của các tế bào. Tế bào là những khối xây dựng căn bản của cơ thể con người. Cơ thể chúng ta được tạo nêu từ nhiều dạng tế bào khác nhau như tế bào xương, da và máu.</p>
           <p>
@@ -436,7 +436,7 @@ export default function Cancer() {
             <iframe width="450" height="253" src="https://www.youtube.com/embed/vYH4LAufLdM?si=SQLGUpez0sc0gJGv" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
           </div>
         </div>
-        <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '65vh',  minWidth:'500px'}}>
+        <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '65vh',  minWidth:'350px'}}>
           <h2>Những quan niệm sai lầm về ung thư</h2>
           <p>Một ngày sau khi đi kiểm tra sức khỏe, bạn biết mình bị ung thư và cho rằng, mình đã mang án tử hình, điều đó là hoàn toàn sai lầm. Nếu tuân thủ việc khám sức khỏe và lộ trình điều trị của bác sĩ, bạn vẫn có thể sống khỏe tới già bởi nhiều loại ung thư có thể chữa khỏi tới 90%.</p>
           <div className="card" style={{ flex: 1, overflow: 'auto' }}>
@@ -446,8 +446,8 @@ export default function Cancer() {
       </Reveal>
 
       <Reveal dir="left" delay={2} style={{ marginTop: '1%', display: 'flex', flexFlow:'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
-          <div className="canvas-shell" ref={bodyRef} style={{ flex: 1, height: '65vh', minWidth:'500px'}} />
-          <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'stretch', height: '65vh', minWidth:'500px' }}>
+          <div className="canvas-shell" ref={bodyRef} style={{ flex: 1, height: '65vh', minWidth:'350px'}} />
+          <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'stretch', height: '65vh', minWidth:'350px' }}>
             <h2>Các loại ung thư thường gặp và nguyên nhân</h2>
             <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
               <div role="group" aria-label="Chọn cơ thể">
@@ -501,10 +501,10 @@ export default function Cancer() {
 
       <Reveal dir="right" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow:'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         
-        <div className="card" style={{ display: 'flex', flexFlow:'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '65vh', minWidth:'500px'}}>
+        <div className="card" style={{ display: 'flex', flexFlow:'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '65vh', minWidth:'350px'}}>
           <h2>Chẩn đoán</h2>
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'stretch', overflow:'auto' }}>
-            <div style={{ display: 'flex' }}>
+          <div style={{ flex: 1, display: 'flex', flexFlow: 'column wrap', alignItems: 'stretch', justifyContent: 'stretch', overflow:'auto' }}>
+            <div style={{ display: 'flex', flexFlow: 'column wrap' }}>
               <button
                 className={`btn ${inst === 'ct' ? '' : 'btn--outline'}`}
                 onClick={() => setInst('ct')}
@@ -553,7 +553,7 @@ export default function Cancer() {
           </div>
           
         </div>
-        <div className="canvas-shell" ref={instRef} style={{ flex: 1, height: '65vh', minWidth:'500px'}} />
+        <div className="canvas-shell" ref={instRef} style={{ flex: 1, height: '65vh', minWidth:'350px'}} />
       </Reveal>
 
       <Reveal dir="left" delay={4}>
