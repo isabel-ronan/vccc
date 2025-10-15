@@ -40,7 +40,6 @@ export default function SeekingSupport() {
             <li><a href="https://benhvienungbuoudanang.com.vn/">Bệnh viện ung bướu Đà Nẵng</a></li>
             <li><a href="https://bvtwhue.com.vn/Danhmuc/Baiviet/?lang=vi&ID=86#">Bệnh viện Trung ương Huế - Trung tâm ung bướu</a></li>
            </ul>
-           <p>Xem video tại đây để tìm hiểu thêm.</p>
         </div>
       </Reveal>
 

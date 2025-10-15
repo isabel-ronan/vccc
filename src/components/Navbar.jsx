@@ -90,7 +90,7 @@ export default function Navbar() {
           <NavLink className="navLinks" to="/dailyCare" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>CHĂM SÓC HÀNG NGÀY</NavLink>
           <NavLink className="navLinks" to="/skillsTraining" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>ĐÀO TẠO KỸ NĂNG</NavLink>
           <NavLink className="navLinks" to="/traditionalMedicine" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Y HỌC CỔ TRUYỀN</NavLink>
-          <NavLink className="navLinks" to="/nutrition" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Nutrition</NavLink>
+          <NavLink className="navLinks" to="/nutrition" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>DINH DƯỠNG</NavLink>
 
           {/* Knowledge dropdown */}
           <div
