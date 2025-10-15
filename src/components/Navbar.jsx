@@ -87,7 +87,7 @@ export default function Navbar() {
 
           <NavLink className="navLinks" to="/cancer" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Kiến Thức</NavLink>
           <NavLink className="navLinks" to="/seekingSupport" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Tìm Kiếm Hỗ Trợ</NavLink>
-          <NavLink className="navLinks" to="/dailyCare" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Daily Care</NavLink>
+          <NavLink className="navLinks" to="/dailyCare" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Chăm Sóc Hàng Ngày</NavLink>
           <NavLink className="navLinks" to="/skillsTraining" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Skills Training</NavLink>
           <NavLink className="navLinks" to="/traditionalMedicine" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Traditional Medicine</NavLink>
           <NavLink className="navLinks" to="/nutrition" style={linkStyle} onClick={() => { setOpen(false); setOpenDD(false); }}>Nutrition</NavLink>

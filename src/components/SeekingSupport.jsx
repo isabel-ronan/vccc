@@ -26,7 +26,7 @@ export default function SeekingSupport() {
 
 
 
-      <Reveal dir="left" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
+      <Reveal dir="left" delay={4} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column wrap', alignItems: 'center', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow:'auto'}}>
           <img src={`${base}/images/hospitalSeekingSupport.jpg`}/>
         </div>
@@ -45,7 +45,7 @@ export default function SeekingSupport() {
       </Reveal>
 
 
-        <Reveal dir="right" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
+        <Reveal dir="right" delay={5} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow:'auto' }}>
           <h2>PHẪU THUẬT TRONG UNG THƯ</h2>
           <p>Phẫu thuật được sử dụng để ngăn ngừa, chẩn đoán, giai đoạn và điều trị ung thư. Phẫu thuật cũng có thể làm giảm sự khó chịu hoặc các vấn đề liên quan đến ung thư.</p>
@@ -57,7 +57,7 @@ export default function SeekingSupport() {
       </Reveal>
 
 
-      <Reveal dir="left" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
+      <Reveal dir="left" delay={6} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px' }}>
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/GMa0VP3MrMo?si=d28lWvO8eCZPRWXk" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
@@ -69,7 +69,7 @@ export default function SeekingSupport() {
       </Reveal>
 
 
-        <Reveal dir="right" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
+        <Reveal dir="right" delay={7} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow:'auto' }}>
           <h2>XẠ TRỊ TRONG UNG THƯ</h2>
           <p>
