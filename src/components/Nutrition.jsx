@@ -3,7 +3,7 @@ export default function Nutrition() {
   return (
     <section className="section">
 
-      <h1>ISABEL HERE</h1>
+      <h1>Dinh dưỡng rất quan trọng đối với bất kỳ căn bệnh nào. Hãy xem các video dưới đây để tìm hiểu thêm...</h1>
       <Reveal dir="left" delay={4} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '65vh', minWidth: '350px' }}>
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SC6XBghEuRw?si=KPsiLR0MrH1FNDE8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
