@@ -417,7 +417,7 @@ export default function Cancer() {
       <h1>Các gia đình ở Việt Nam đã nói với chúng tôi rằng đôi khi việc hiểu về bệnh ung thư và các phương pháp điều trị ung thư là điều khó khăn. Hãy đọc bên dưới để tìm hiểu thêm thông tin...</h1>
       <Reveal dir="right" delay={1} style={{ display: 'flex', flexFlow:'row wrap'}} >
         <div className="card" style={{ flex: 1, overflow: 'auto', height: '65vh', minWidth:'350px'}}>
-          <h2>Ung thư là gì?</h2>
+          <h2>UNG THƯ LÀ GÌ?</h2>
           <p>Ung thư là căn bệnh của các tế bào. Tế bào là những khối xây dựng căn bản của cơ thể con người. Cơ thể chúng ta được tạo nêu từ nhiều dạng tế bào khác nhau như tế bào xương, da và máu.</p>
           <p>
             Ung thư là gì?
@@ -437,7 +437,7 @@ export default function Cancer() {
           </div>
         </div>
         <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '65vh',  minWidth:'350px'}}>
-          <h2>Những quan niệm sai lầm về ung thư</h2>
+          <h2>NHỮNG QUAN NIỆM SAI LẦM VỀ UNG THƯ</h2>
           <p>Một ngày sau khi đi kiểm tra sức khỏe, bạn biết mình bị ung thư và cho rằng, mình đã mang án tử hình, điều đó là hoàn toàn sai lầm. Nếu tuân thủ việc khám sức khỏe và lộ trình điều trị của bác sĩ, bạn vẫn có thể sống khỏe tới già bởi nhiều loại ung thư có thể chữa khỏi tới 90%.</p>
           <div className="card" style={{ flex: 1, overflow: 'auto' }}>
             <SlidingCards />
@@ -448,7 +448,7 @@ export default function Cancer() {
       <Reveal dir="left" delay={2} style={{ marginTop: '1%', display: 'flex', flexFlow:'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
           <div className="canvas-shell" ref={bodyRef} style={{ flex: 1, height: '65vh', minWidth:'350px'}} />
           <div className="card" style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'stretch', height: '65vh', minWidth:'350px' }}>
-            <h2>Các loại ung thư thường gặp và nguyên nhân</h2>
+            <h2>CÁC LOẠI UNG THƯ THƯỜNG GẶP VÀ NGUYÊN NHÂN</h2>
             <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
               <div role="group" aria-label="Chọn cơ thể">
                 <button
@@ -502,7 +502,7 @@ export default function Cancer() {
       <Reveal dir="right" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow:'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         
         <div className="card" style={{ display: 'flex', flexFlow:'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '65vh', minWidth:'350px'}}>
-          <h2>Chẩn đoán</h2>
+          <h2>CHẨN ĐOÁN</h2>
           <div style={{ flex: 1, display: 'flex', flexFlow: 'column wrap', alignItems: 'stretch', justifyContent: 'stretch', overflow:'auto' }}>
             <div style={{ display: 'flex', flexFlow: 'column wrap' }}>
               <button
@@ -557,8 +557,9 @@ export default function Cancer() {
       </Reveal>
 
       <Reveal dir="left" delay={4}>
-        <h2>Điều trị</h2>
+        <h2>ĐIỀU TRỊ</h2>
         <div className='card'>
+          
           <h3>Phẫu thuật</h3>
           <p><strong>Mô tả:</strong> Loại bỏ khối u hoặc mô ung thư ra khỏi cơ thể bằng cách can thiệp ngoại khoa. Thường áp dụng khi khối u còn khu trú.</p>
           <p><strong>Mục đích:</strong> Loại bỏ hoàn toàn khối u hoặc giảm kích thước khối u. Thường kết hợp với các phương pháp điều trị khác.</p>
