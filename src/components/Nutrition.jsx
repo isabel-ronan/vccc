@@ -5,10 +5,10 @@ export default function Nutrition() {
 
       <h1>Dinh dưỡng rất quan trọng đối với bất kỳ căn bệnh nào. Hãy xem các video dưới đây để tìm hiểu thêm...</h1>
       <Reveal dir="left" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
-        <div className="card" style={{ display: 'flex', flexFlow: 'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '65vh', minWidth: '350px' }}>
+        <div className="card" style={{ display: 'flex', flexFlow: 'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px' }}>
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SC6XBghEuRw?si=KPsiLR0MrH1FNDE8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
-        <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '65vh', minWidth: '350px', overflow: 'auto' }}>
+        <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
           <h2>DINH DƯỠNG CHO NGƯỜI BỆNH UNG THƯ</h2>
           <p>Ung thư là một trong những nguyên nhân gây tử vong hàng đầu trên thế giới và đang ngày càng gia tăng rất nhanh ở Việt Nam. Một trong những điều quan trọng là bệnh thường được phát hiện ở giai đoạn khá muộn, cùng với đau đớn là tâm lý khủng hoảng, rối loạn giấc ngủ, làm cho người bệnh bị suy sụp, chán ăn, mệt mỏi và nhanh chóng dẫn tới tình trạng suy dinh dưỡng. Ung thư có thể ảnh hưởng đến tình trạng dinh dưỡng, và ngược lại, tình trạng dinh dưỡng kém cũng ảnh hưởng đến các đáp ứng điều trị, các phương pháp điều trị, cũng như ảnh hưởng đến chất lượng cuộc sống của bệnh nhân ung thư.</p>
           <p>Sự giảm cân của bệnh nhân ung thư là do tác động nhiều yếu tố: như tâm lý, sự chán ăn, tác động từ khối u, tác dụng phụ của các liệu pháp điều trị.
@@ -30,7 +30,7 @@ export default function Nutrition() {
 
       <Reveal dir="right" delay={4} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
 
-        <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '65vh', minWidth: '350px', overflow: 'auto' }}>
+        <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
           <h2>VẬY BỆNH NHÂN UNG THƯ CẦN ĂN GÌ, ĂN NHƯ THẾ NÀO?</h2>
           <p>Chúng ta nên biết rằng mục đích của việc điều trị dinh dưỡng là để cung cấp đầy đủ năng lượng và các chất dinh dưỡng cho cơ thể duy trì mọi hoạt động sống, giúp hồi phục suy dinh dưỡng và tăng khả năng đáp ứng điều trị, giảm các biến chứng và tăng cường chất lượng cuộc sống. Vì vậy vai trò của người nhà bệnh nhân và nhân viên y tế rất quan trọng trong chăm sóc dinh dưỡng cho bệnh nhân hằng ngày.</p>
           <h2>VẬY BỆNH NHÂN UNG THƯ NÊN ĂN GÌ?</h2>
@@ -43,7 +43,7 @@ export default function Nutrition() {
             <li>Thứ sáu là chất khoáng và vitamin. Dù cơ thể cần một lượng rất nhỏ các vitamin và chất khoáng nhưng chúng lại rất quan trọng trong quá trình tạo máu, chuyển hoá men, miễn dịch, lành sẹo. Vitamin, chất khoáng có nhiều trong trái cây, rau xanh, hoa quả tươi và ngũ cốc.</li>
           </ul>
         </div>
-        <div className="card" style={{ display: 'flex', flexFlow: 'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '65vh', minWidth: '350px' }}>
+        <div className="card" style={{ display: 'flex', flexFlow: 'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px' }}>
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/5hMr2WtKALQ?si=cm4FhGuTtlrvagld" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
 

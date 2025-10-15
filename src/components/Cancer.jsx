@@ -556,7 +556,21 @@ export default function Cancer() {
         <div className="canvas-shell" ref={instRef} style={{ flex: 1, height: '65vh', minWidth:'350px'}} />
       </Reveal>
 
-      <Reveal dir="left" delay={4}>
+
+      <Reveal dir="left" delay={4} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
+        <div className="card" style={{ display: 'flex', flexFlow: 'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px' }}>
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/TGRYL7ltvZA?si=KDDKCBi4HCCOT50C" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+        </div>
+        <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
+          <h2>CÁCH NHÌN NHẬN VỀ BỆNH UNG THƯ</h2>
+          <p>Ung thư không phải dấu chấm hết!</p>
+          <p>Xem video tại đây để tìm hiểu thêm.</p>
+
+        </div>
+
+      </Reveal>
+
+      <Reveal dir="right" delay={5}>
         <h2>ĐIỀU TRỊ</h2>
         <div className='card'>
           
