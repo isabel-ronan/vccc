@@ -49,8 +49,9 @@ export default function Navbar() {
   })
 
   const psychologicalActivity = ({
-    color: location.pathname.startsWith('/cancer') || location.pathname.startsWith('/treatment') ? 'var(--text)' : 'var(--muted)',
-    fontWeight: location.pathname.startsWith('/cancer') || location.pathname.startsWith('/treatment') ? 700 : 400,
+    color: location.pathname.startsWith('/selfCare') || location.pathname.startsWith('/psycInfo') ? 'var(--text)' : 'var(--muted)',
+    fontWeight: location.pathname.startsWith('/selfCare') || location.pathname.startsWith('/psycInfo') ? 700 : 400,
+    fontSize: '.90rem'
   })
 
   return (
@@ -107,7 +108,7 @@ export default function Navbar() {
               onClick={() => setOpenDD(v => !v)}
               style={psychologicalActivity}
             >
-              Psychological Support ▾
+              HỖ TRỢ TÂM LÝ ▾
             </button>
             <div
               id="knowledge-submenu"
@@ -115,8 +116,8 @@ export default function Navbar() {
               ref={ddRef}
               className="submenu"
             >
-              <NavLink role="menuitem" to="/selfCare" className="submenu-item" onClick={() => { setOpen(false); setOpenDD(false); }}>Bài Tập Thở"</NavLink>
-              <NavLink role="menuitem" to="/" className="submenu-item" onClick={() => { setOpen(false); setOpenDD(false); }}>Placeholder Example</NavLink>
+              <NavLink role="menuitem" to="/selfCare" className="submenu-item" onClick={() => { setOpen(false); setOpenDD(false); }}>BÀI TẬP THỞ</NavLink>
+              <NavLink role="menuitem" to="/psycInfo" className="submenu-item" onClick={() => { setOpen(false); setOpenDD(false); }}>THÔNG TIN VỀ NHU CẦU TÂM LÝ</NavLink>
             </div>
           </div>
         </nav>

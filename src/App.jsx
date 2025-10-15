@@ -1,15 +1,16 @@
-import { Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import Cancer from './components/Cancer.jsx'
-import SeekingSupport from './components/SeekingSupport.jsx'
-import DailyCare from './components/DailyCare.jsx'
-import SkillsTraining from './components/SkillsTraining.jsx'
-import TraditionalMedicine from './components/TraditionalMedicine.jsx'
-import Nutrition from './components/Nutrition.jsx'
-import SelfCare from './components/SelfCare.jsx'
-import Footer from './components/Footer.jsx'
-import ThemeFab from './components/ThemeFab.jsx'
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar.jsx';
+import Hero from './components/Hero.jsx';
+import Cancer from './components/Cancer.jsx';
+import SeekingSupport from './components/SeekingSupport.jsx';
+import DailyCare from './components/DailyCare.jsx';
+import SkillsTraining from './components/SkillsTraining.jsx';
+import TraditionalMedicine from './components/TraditionalMedicine.jsx';
+import Nutrition from './components/Nutrition.jsx';
+import SelfCare from './components/SelfCare.jsx';
+import Footer from './components/Footer.jsx';
+import ThemeFab from './components/ThemeFab.jsx';
+import PsycInfo from './components/PsycInfo.jsx';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/traditionalMedicine" element={<TraditionalMedicine />} />
           <Route path="/nutrition" element={<Nutrition />} />
           <Route path="/selfCare" element={<SelfCare />} />
+          <Route path="/psycInfo" element={<PsycInfo />} />
 
 
           <Route path="*" element={<p style={{ padding: '4rem 0' }}>Page not found 😢</p>} />

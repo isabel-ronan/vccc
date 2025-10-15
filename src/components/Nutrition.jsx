@@ -4,7 +4,7 @@ export default function Nutrition() {
     <section className="section">
 
       <h1>Dinh dưỡng rất quan trọng đối với bất kỳ căn bệnh nào. Hãy xem các video dưới đây để tìm hiểu thêm...</h1>
-      <Reveal dir="left" delay={4} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
+      <Reveal dir="left" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column wrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '65vh', minWidth: '350px' }}>
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SC6XBghEuRw?si=KPsiLR0MrH1FNDE8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
@@ -31,9 +31,9 @@ export default function Nutrition() {
       <Reveal dir="right" delay={4} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
 
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '65vh', minWidth: '350px', overflow: 'auto' }}>
-          <h2>Vậy bệnh nhân ung thư cần ăn gì, ăn như thế nào?</h2>
+          <h2>VẬY BỆNH NHÂN UNG THƯ CẦN ĂN GÌ, ĂN NHƯ THẾ NÀO?</h2>
           <p>Chúng ta nên biết rằng mục đích của việc điều trị dinh dưỡng là để cung cấp đầy đủ năng lượng và các chất dinh dưỡng cho cơ thể duy trì mọi hoạt động sống, giúp hồi phục suy dinh dưỡng và tăng khả năng đáp ứng điều trị, giảm các biến chứng và tăng cường chất lượng cuộc sống. Vì vậy vai trò của người nhà bệnh nhân và nhân viên y tế rất quan trọng trong chăm sóc dinh dưỡng cho bệnh nhân hằng ngày.</p>
-          <h2>Vậy bệnh nhân ung thư nên ăn gì?</h2>
+          <h2>VẬY BỆNH NHÂN UNG THƯ NÊN ĂN GÌ?</h2>
           <ul>
             <li>Đầu tiên là thức ăn giàu chất đạm như: thịt, cá, trứng, sữa, ngũ cốc, hay các loại hạt… Trong đó, bệnh nhân nên ăn thịt trắng, đậu đỗ, trứng và sữa là thường xuyên.</li>
             <li>Thứ hai là bệnh nhân nên ăn thức ăn giàu chất béo. Bệnh nhân nên sử dụng dầu hay cho mỡ. Các loại dầu tốt cho bệnh nhân như: dầu oliu, dầu cải, dầu phộng, dầu nành, dầu cá…</li>
@@ -49,13 +49,13 @@ export default function Nutrition() {
 
       </Reveal>
 
-      <Reveal dir="left" delay={4}>
+      <Reveal dir="left" delay={5}>
         <h2></h2>
         <div className='card'>
 
-          <h3>Vậy bệnh nhân không nên ăn gì?</h3>
+          <h2>VẬY BỆNH NHÂN KHÔNG NÊN ĂN GÌ?</h2>
           <p>Bệnh nhân ung thư thì nên hạn chế dùng các thực phẩm chứa nhiều axit béo như mỡ động vật, thịt nướng, thịt hun khói, món xào rán, bánh chả… Các thực phẩm chế biến công nghiệp, đóng gói sẵn như: đồ hộp, thịt nguội… Và hạn chế uống nước chè ban đêm. Không nên dùng dầu mỡ rán đi rán lại nhiều lần, thực phẩm muối lên men như thịt muối, dưa muối, cà muối … thì cũng không nên dùng. Các loại thực phẩm nấm mốc như lạc mốc, đậu đỗ mốc, hạt bí mốc… thì cũng không nên dùng. Và hạn chế sử dụng các chất kích thích như rượu, bia, thuốc lá.</p>
-          <h3>Bệnh nhân được điều trị dinh dưỡng tại bệnh viện như thế nào?</h3>
+          <h2>BỆNH NHÂN ĐƯỢC ĐIỀU TRỊ DINH DƯỠNG TẠI BỆNH VIỆN NHƯ THẾ NÀO?</h2>
           <div>
             <blockquote style={{ fontStyle: 'italic' }}>
               <p>
@@ -74,7 +74,7 @@ export default function Nutrition() {
             <p>— Bác sĩ</p>
           </div>
 
-          <h3>Tóm tắt</h3>
+          <h2>TÓM TẮT</h2>
           <p>Chung quy lại, bệnh nhân cũng như người nhà cần giữ vững 4 nguyên tắc dinh dưỡng sau và duy trì suốt quá trình điều trị:</p>
           <ul>
             <li>Ăn uống đầy đủ và cân đối.</li>
