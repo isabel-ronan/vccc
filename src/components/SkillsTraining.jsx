@@ -3,13 +3,14 @@ import AudioButton from "./AudioButton";
 
 
 export default function SkillsTraining() {
+    const base = import.meta.env.BASE_URL || '/'; // to work locally and on GitHub
   return (
     <section className="section">
 
       <h1>Đào tạo kỹ năng rất quan trọng trong việc chăm sóc những người bị ảnh hưởng bởi ung thư. Hãy xem các video bên dưới để tìm hiểu về một số kỹ năng bạn có thể cần...</h1>
       <Reveal dir="right" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+          <AudioButton src={`${base}sound/narration/skillsTrainingOne.mp3`} label="Skills training one"/>
           <h2>VỆ SINH RĂNG MIỆNG & VỆ SINH THÂN THỂ</h2>
           <p>Chăm sóc và vệ sinh cho bệnh nhân là 1 nhu cầu cơ bản hằng ngày. Vệ sinh cá nhân là rất quan trọng nhằm giúp người bệnh cảm thấy thoải mái thư giãn, dễ chịu và ăn ngon, ngủ tốt. Những hỗ trợ vệ sinh thân thể người bệnh cơ bản bao gồm:</p>
 
@@ -31,7 +32,7 @@ export default function SkillsTraining() {
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Cz3zSeRzXNw?si=ubFDWJvrFtiSHRFI" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+          <AudioButton src={`${base}sound/narration/skillsTrainingTwo.mp3`} label="Skills training two"/>
         
           <h2>CHĂM SÓC DA MÓNG</h2>
 
@@ -50,7 +51,7 @@ export default function SkillsTraining() {
 
       <Reveal dir="right" delay={5} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+          <AudioButton src={`${base}sound/narration/skillsTrainingThree.mp3`} label="Skills training three"/>
         
           <h2>HƯỚNG DẪN LĂN TRỞ</h2>
 
@@ -76,7 +77,7 @@ export default function SkillsTraining() {
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/iXqEUypgkMI?si=hebozYiekfnK-oMQ" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+          <AudioButton src={`${base}sound/narration/skillsTrainingFour.mp3`} label="Skills training four"/>
         
           <h2>CHĂM SÓC ỐNG THÔNG DẠ DÀY</h2>
 
@@ -93,7 +94,7 @@ export default function SkillsTraining() {
       <Reveal dir="right" delay={7} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
 
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+          <AudioButton src={`${base}sound/narration/skillsTrainingFive.mp3`} label="Skills training five"/>
         
           <h2>HƯỚNG DẪN PHỤC HỒI CHỨC NĂNG</h2>
 

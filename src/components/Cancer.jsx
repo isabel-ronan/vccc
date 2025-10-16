@@ -418,8 +418,8 @@ export default function Cancer() {
       <h1>Các gia đình ở Việt Nam đã nói với chúng tôi rằng đôi khi việc hiểu về bệnh ung thư và các phương pháp điều trị ung thư là điều khó khăn. Hãy đọc bên dưới để tìm hiểu thêm thông tin...</h1>
       <Reveal dir="right" delay={1} style={{ display: 'flex', flexFlow: 'row wrap' }} >
         <AudioButton
-          src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-          label="Play sample audio"
+          src={`${base}sound/narration/cancerPageOne.mp3`}
+          label="Cancer audio one"
         />
         <div className="card" style={{ flex: 1, overflow: 'auto', height: '65vh', minWidth: '350px' }}>
           <h2>UNG THƯ LÀ GÌ?</h2>
@@ -579,8 +579,8 @@ export default function Cancer() {
         <h2>ĐIỀU TRỊ</h2>
         <div className='card'>
           <AudioButton
-          src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-          label="Play sample audio"
+          src={`${base}sound/narration/cancerPageTwo.mp3`}
+          label="Cancer audio two"
           position="right-bottom"
         />
 

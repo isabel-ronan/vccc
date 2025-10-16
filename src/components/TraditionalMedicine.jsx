@@ -10,7 +10,7 @@ export default function TraditionalMedicine() {
 
       <Reveal dir="right" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+          <AudioButton src={`${base}sound/narration/traditionalMedicineOne.mp3`} label="Traditional medicine one"/>
         
           <h2>KHÁI NIỆM UNG THƯ THEO Y HỌC CỔ TRUYỀN & Y HỌC HIỆN ĐẠI</h2>
           <p>Ung thư là một nhóm các bệnh liên quan đến việc tăng sinh tế bào một cách mất kiểm soát và những tế bào đó có khả năng xâm lấn những mô khác bằng cách phát triển trực tiếp vào mô lân cận hoặc di chuyển đến những bộ phận khác trong cơ thể ( di căn).</p>
@@ -28,7 +28,7 @@ export default function TraditionalMedicine() {
           <img src={`${base}/images/traditionalMedicine.png`}/>
         </div>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+          <AudioButton src={`${base}sound/narration/traditionalMedicineTwo.mp3`} label="Traditional medicine two"/>
         
           <h2>CÁC PHƯƠNG PHÁP ĐIỀU TRỊ Y HỌC CỔ TRUYỀN</h2>
 
@@ -41,7 +41,7 @@ export default function TraditionalMedicine() {
 
       <Reveal dir="right" delay={5} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+          <AudioButton src={`${base}sound/narration/traditionalMedicineThree.mp3`} label="Traditional medicine three"/>
         
           <h2>MỘT SỐ SAI LẦM TRONG ĐIỀU TRỊ UNG THƯ BẰNG Y HỌC CỔ TRUYỀN</h2>
           <p>Khi phát hiện bệnh thì không khám và điều trị theo chuyên khoa ung bướu mà tự ý hoặc nghe theo quảng cáo đi điều trị thuốc nam, thực phẩm chức năng bỏ lỡ cơ hội điều trị khỏi bệnh, khi bệnh nặng lên giai đoạn toàn phát mới quay lại bệnh viện thì không thể điều trị được nữa.</p>
@@ -60,7 +60,7 @@ export default function TraditionalMedicine() {
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Ke64gGDpoLw?si=4kZ4Y_OutIZq-zJf" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+          <AudioButton src={`${base}sound/narration/traditionalMedicineFour.mp3`} label="Traditional medicine four"/>
         
           <h2>MỘT SỐ KHUYẾN NGHỊ TRONG Y HỌC CỔ TRUYỀN</h2>
           <ul>

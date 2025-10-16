@@ -1,6 +1,7 @@
 import Reveal from "./Reveal";
 import AudioButton from "./AudioButton";
 export default function Nutrition() {
+  const base = import.meta.env.BASE_URL || '/'; // to work locally and on GitHub
   return (
     <section className="section">
 
@@ -10,8 +11,8 @@ export default function Nutrition() {
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SC6XBghEuRw?si=KPsiLR0MrH1FNDE8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio" position="right-bottom"></AudioButton>
-        
+          <AudioButton src={`${base}sound/narration/nutritionOne.mp3`} label="Nutrition one" position="right-bottom"/>
+
           <h2>DINH DƯỠNG CHO NGƯỜI BỆNH UNG THƯ</h2>
           <p>Ung thư là một trong những nguyên nhân gây tử vong hàng đầu trên thế giới và đang ngày càng gia tăng rất nhanh ở Việt Nam. Một trong những điều quan trọng là bệnh thường được phát hiện ở giai đoạn khá muộn, cùng với đau đớn là tâm lý khủng hoảng, rối loạn giấc ngủ, làm cho người bệnh bị suy sụp, chán ăn, mệt mỏi và nhanh chóng dẫn tới tình trạng suy dinh dưỡng. Ung thư có thể ảnh hưởng đến tình trạng dinh dưỡng, và ngược lại, tình trạng dinh dưỡng kém cũng ảnh hưởng đến các đáp ứng điều trị, các phương pháp điều trị, cũng như ảnh hưởng đến chất lượng cuộc sống của bệnh nhân ung thư.</p>
           <p>Sự giảm cân của bệnh nhân ung thư là do tác động nhiều yếu tố: như tâm lý, sự chán ăn, tác động từ khối u, tác dụng phụ của các liệu pháp điều trị.
@@ -34,8 +35,8 @@ export default function Nutrition() {
       <Reveal dir="right" delay={4} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
 
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
-        
+          <AudioButton src={`${base}sound/narration/nutritionTwo.mp3`} label="Nutrition two"/>
+
           <h2>VẬY BỆNH NHÂN UNG THƯ CẦN ĂN GÌ, ĂN NHƯ THẾ NÀO?</h2>
           <p>Chúng ta nên biết rằng mục đích của việc điều trị dinh dưỡng là để cung cấp đầy đủ năng lượng và các chất dinh dưỡng cho cơ thể duy trì mọi hoạt động sống, giúp hồi phục suy dinh dưỡng và tăng khả năng đáp ứng điều trị, giảm các biến chứng và tăng cường chất lượng cuộc sống. Vì vậy vai trò của người nhà bệnh nhân và nhân viên y tế rất quan trọng trong chăm sóc dinh dưỡng cho bệnh nhân hằng ngày.</p>
           <h2>VẬY BỆNH NHÂN UNG THƯ NÊN ĂN GÌ?</h2>
@@ -57,8 +58,8 @@ export default function Nutrition() {
       <Reveal dir="left" delay={5}>
         <h2></h2>
         <div className='card'>
-          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio" position="right-bottom"></AudioButton>
-        
+          <AudioButton src={`${base}sound/narration/nutritionThree.mp3`} label="Nutrition three" position="right-bottom"/>
+
           <h2>VẬY BỆNH NHÂN KHÔNG NÊN ĂN GÌ?</h2>
           <p>Bệnh nhân ung thư thì nên hạn chế dùng các thực phẩm chứa nhiều axit béo như mỡ động vật, thịt nướng, thịt hun khói, món xào rán, bánh chả… Các thực phẩm chế biến công nghiệp, đóng gói sẵn như: đồ hộp, thịt nguội… Và hạn chế uống nước chè ban đêm. Không nên dùng dầu mỡ rán đi rán lại nhiều lần, thực phẩm muối lên men như thịt muối, dưa muối, cà muối … thì cũng không nên dùng. Các loại thực phẩm nấm mốc như lạc mốc, đậu đỗ mốc, hạt bí mốc… thì cũng không nên dùng. Và hạn chế sử dụng các chất kích thích như rượu, bia, thuốc lá.</p>
           <h2>BỆNH NHÂN ĐƯỢC ĐIỀU TRỊ DINH DƯỠNG TẠI BỆNH VIỆN NHƯ THẾ NÀO?</h2>
@@ -74,7 +75,7 @@ export default function Nutrition() {
           <div>
             <blockquote style={{ fontStyle: 'italic' }}>
               <p>
-              Bệnh nhân ung thư đến khám và điều trị cúng sẽ được bác sĩ, nhân viên y tế sàng lọc, đánh giá tình trạng dinh dưỡng và xác định nguy cơ có suy dinh dưỡng hay là không. Sau đó sẽ chỉ định mã chế độ ăn để phù hợp với từng tình trạng bệnh lý của bệnh nhân. Những bệnh nhân có nguy cơ suy dinh dưỡng cao sẽ được bác sĩ điều trị hội chẩn với bác sĩ dinh dưỡng để đưa một kế hoạch can thiệp hợp lý cho bệnh nhân ung thư. Một số bệnh nhân ung thư cũng sẽ được khám và tư vấn dinh dưỡng để đưa ra những thực đơn cụ thể, lên kế hoạch rõ ràng, chi tiết, và hướng dẫn người nhà, bệnh nhân lựa chọn thực phẩm, cách chế biến thực phẩm và cách ăn uống như thế nào cho đúng tại nhà cũng như trên bệnh viện trong quá trình điều trị.  
+                Bệnh nhân ung thư đến khám và điều trị cúng sẽ được bác sĩ, nhân viên y tế sàng lọc, đánh giá tình trạng dinh dưỡng và xác định nguy cơ có suy dinh dưỡng hay là không. Sau đó sẽ chỉ định mã chế độ ăn để phù hợp với từng tình trạng bệnh lý của bệnh nhân. Những bệnh nhân có nguy cơ suy dinh dưỡng cao sẽ được bác sĩ điều trị hội chẩn với bác sĩ dinh dưỡng để đưa một kế hoạch can thiệp hợp lý cho bệnh nhân ung thư. Một số bệnh nhân ung thư cũng sẽ được khám và tư vấn dinh dưỡng để đưa ra những thực đơn cụ thể, lên kế hoạch rõ ràng, chi tiết, và hướng dẫn người nhà, bệnh nhân lựa chọn thực phẩm, cách chế biến thực phẩm và cách ăn uống như thế nào cho đúng tại nhà cũng như trên bệnh viện trong quá trình điều trị.
               </p>
             </blockquote>
             <p>— Bác sĩ</p>

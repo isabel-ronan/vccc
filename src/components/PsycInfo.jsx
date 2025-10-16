@@ -1,6 +1,7 @@
 import Reveal from "./Reveal";
 import AudioButton from "./AudioButton";
 export default function Navbar() {
+    const base = import.meta.env.BASE_URL || '/'; // to work locally and on GitHub
     return (
         <section className="section">
 
@@ -9,10 +10,7 @@ export default function Navbar() {
 
             <Reveal dir="right" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch' }}>
                 <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
-                    <AudioButton
-                        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-                        label="Play sample audio"
-                    />
+                    <AudioButton src={`${base}sound/narration/psycInfoOne.mp3`} label="Psyc info one"/>
                     <h2>NHU CẦU CẦN HỖ TRỢ VÀ NHU CẦU TÂM LÝ</h2>
                     <div>
                         <blockquote style={{ fontStyle: 'italic' }}>
@@ -35,8 +33,7 @@ export default function Navbar() {
                 </div>
                 <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
                     <AudioButton
-                        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-                        label="Play sample audio"
+                        src={`${base}sound/narration/psycInfoTwo.mp3`} label="Psyc info two"
                         position="right-bottom"
                     />
                     <h2>THIỀN VÀ YOGA TRONG UNG THƯ</h2>
@@ -52,8 +49,7 @@ export default function Navbar() {
             <Reveal dir="right" delay={5} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch' }}>
                 <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
                     <AudioButton
-                        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-                        label="Play sample audio"
+                        src={`${base}sound/narration/psycInfoThree.mp3`} label="Psyc info three"
                     />
                     <h2>NHU CẦU HỖ TRỢ VÀ NHU CẦU TÂM LÝ</h2>
                     <p>Trợ giúp tâm lý xã hội là một phần thiết yếu trong chăm sóc bệnh nhân ung thư, nên được cung cấp cho tất cả các bệnh nhân ung thư và gia đình họ. Trợ giúp này bao gồm mọi khía cạnh xã hội, tài chính, tâm lý, tình cảm, tinh thần, sinh hoạt hàng ngày, trong mọi giai đoạn của bệnh ung thư. Trong những thập kỷ gần đây, ngày càng có nhiều bằng chứng chứng tỏ hiệu quả của phương pháp tiếp cận từng bước cho phép chúng ta có những can thiệp đáp ứng được đúng đối tượng và nhu cầu của người bệnh và người thân của họ. Phương pháp này bao gồm sàng lọc, đánh giá và triển khai can thiệp. Trong bài giảng, PGS.TS Eicher đã đưa ra các phương pháp xây dựng và thực hiện các can thiệp tâm lý xã hội trong chăm sóc ung thư dưới góc độ tiếp cận lấy bệnh nhân làm trung tâm.</p>
@@ -73,8 +69,7 @@ export default function Navbar() {
                 </div>
                 <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
                     <AudioButton
-                        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-                        label="Play sample audio"
+                        src={`${base}sound/narration/psycInfoFour.mp3`} label="Psyc info four"
                         position="right-bottom"
                     />
                     <h2>CÁC GIAI ĐOẠN TÂM LÝ CỦA BỆNH NHÂN UNG THƯ</h2>
