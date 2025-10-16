@@ -557,3 +557,44 @@ a:hover {
   border-radius: 8px;
   cursor: pointer;
 }
+
+
+
+
+/* audio button */
+.audio-parent {
+  position: relative;
+}
+
+.audio-fab {
+  --size: 48px;
+  --ring: #d9f3e6;
+  --shadow: 0 10px 30px rgba(0,0,0,.12);
+  --glow: 0 0 0 10px rgba(16,185,129,.10);
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  border: 2px solid var(--ring);
+  background: linear-gradient(#fff, #f7fffb);
+  box-shadow: var(--shadow), var(--glow);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.audio-fab:hover { transform: scale(1.04); }
+.audio-fab:active { transform: scale(0.96); }
+.audio-fab .icon { font-size: 18px; }
+
+.left-bottom {
+  bottom: -1%;
+  /* left:-1% */
+}
+
+
+.right-bottom {
+  bottom: -1%;
+  right: -1%;
+}

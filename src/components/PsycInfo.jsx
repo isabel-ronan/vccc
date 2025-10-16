@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import AudioButton from "./AudioButton";
 export default function Navbar() {
     return (
         <section className="section">
@@ -8,11 +9,15 @@ export default function Navbar() {
 
             <Reveal dir="right" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch' }}>
                 <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
+                    <AudioButton
+                        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                        label="Play sample audio"
+                    />
                     <h2>NHU CẦU CẦN HỖ TRỢ VÀ NHU CẦU TÂM LÝ</h2>
                     <div>
                         <blockquote style={{ fontStyle: 'italic' }}>
                             <p>
-                            Thời điểm đầu tiên khi biết rằng mình bị ung thư có thể cảm thấy bị mất kiểm soát. Ngay cả như vậy thì việc bạn cần làm đó là tìm hiểu về căn bệnh mà bạn sẽ phải đối mặt, khi biết càng nhiều thì bạn sẽ cảm thấy vững tin hơn. Hãy hỏi bác sĩ bất kỳ câu hỏi nào mà bạn cảm thấy sợ sệt, lo ngại, hay không hiểu. Các cảm giác từ chối, tức giận, sợt sệt, chán nản là những cảm giác của những người đã trải qua bệnh ung thư, bạn nên chia sẻ cảm giác này với một ai đó.    
+                                Thời điểm đầu tiên khi biết rằng mình bị ung thư có thể cảm thấy bị mất kiểm soát. Ngay cả như vậy thì việc bạn cần làm đó là tìm hiểu về căn bệnh mà bạn sẽ phải đối mặt, khi biết càng nhiều thì bạn sẽ cảm thấy vững tin hơn. Hãy hỏi bác sĩ bất kỳ câu hỏi nào mà bạn cảm thấy sợ sệt, lo ngại, hay không hiểu. Các cảm giác từ chối, tức giận, sợt sệt, chán nản là những cảm giác của những người đã trải qua bệnh ung thư, bạn nên chia sẻ cảm giác này với một ai đó.
                             </p>
                         </blockquote>
                         <p>— Chia sẻ của bác sĩ</p>
@@ -29,6 +34,11 @@ export default function Navbar() {
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Wel_vm7mJlw?si=lZYIt4ZUXtonkYCn" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
                 <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
+                    <AudioButton
+                        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                        label="Play sample audio"
+                        position="right-bottom"
+                    />
                     <h2>THIỀN VÀ YOGA TRONG UNG THƯ</h2>
                     <p>Từ xa xưa, con người đã thức hành thiền định như là một phương pháp để chăm sóc sức khỏe thể chất tinh thần và phát triển về trí tuệ. Kể tử đó đến nay đã có hàng ngàn nghiên cứu khoa học hé lộ những hiệu quả tuyệt vời của thiền định đối với sức khỏe con người.</p>
                     <p>Giảm căng thẳng dựa trên chánh niệm (MBSR) là chương trình sử dụng thiền và yoga đầu tiên trên thế giới được đưa vào cơ sở y tế để chăm sóc sức khỏe cho người bệnh. MBSR được khởi xướng vào năm 1979 bởi Giáo sư Jon Kabat-Zinn nhằm hỗ trợ điều trị cho người có bệnh mãn tính. Chương trình đã trở nên phổ biến tại nhiều bệnh viện trên khắp thế giới, được nhiều bác sĩ thực hành đã tin tưởng giới thiệu cho bệnh nhân của mình.</p>
@@ -41,6 +51,10 @@ export default function Navbar() {
 
             <Reveal dir="right" delay={5} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch' }}>
                 <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
+                    <AudioButton
+                        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                        label="Play sample audio"
+                    />
                     <h2>NHU CẦU HỖ TRỢ VÀ NHU CẦU TÂM LÝ</h2>
                     <p>Trợ giúp tâm lý xã hội là một phần thiết yếu trong chăm sóc bệnh nhân ung thư, nên được cung cấp cho tất cả các bệnh nhân ung thư và gia đình họ. Trợ giúp này bao gồm mọi khía cạnh xã hội, tài chính, tâm lý, tình cảm, tinh thần, sinh hoạt hàng ngày, trong mọi giai đoạn của bệnh ung thư. Trong những thập kỷ gần đây, ngày càng có nhiều bằng chứng chứng tỏ hiệu quả của phương pháp tiếp cận từng bước cho phép chúng ta có những can thiệp đáp ứng được đúng đối tượng và nhu cầu của người bệnh và người thân của họ. Phương pháp này bao gồm sàng lọc, đánh giá và triển khai can thiệp. Trong bài giảng, PGS.TS Eicher đã đưa ra các phương pháp xây dựng và thực hiện các can thiệp tâm lý xã hội trong chăm sóc ung thư dưới góc độ tiếp cận lấy bệnh nhân làm trung tâm.</p>
                     <p>Nói tới điều trị ung thư, phần lớn đều nghĩ tới hóa trị, xạ trị mà không biết rằng liệu pháp tâm lý cũng có vai trò vô cùng quan trọng nhưng đang bị xem nhẹ. Thực tế, có tới 82% người bệnh có nhu cầu được tư vấn lâm lý để giải tỏa lo âu, trầm cảm. Điều này cho thấy tầm quan trọng của trị liệu tâm lý cho bệnh nhân ung thư.</p>
@@ -58,6 +72,11 @@ export default function Navbar() {
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Z7MouFvXUK0?si=ojIgRtXVzDqptcey" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
                 <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
+                    <AudioButton
+                        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+                        label="Play sample audio"
+                        position="right-bottom"
+                    />
                     <h2>CÁC GIAI ĐOẠN TÂM LÝ CỦA BỆNH NHÂN UNG THƯ</h2>
                     <h3>GIAI ĐOẠN ĐI THĂM KHÁM BỆNH</h3>
                     <p>Nhiều bệnh nhân chỉ nghĩ đến ung thư là đã hoảng hốt mất ăn, mất ngủ. Nhưng cũng có nhiều người chủ quan, khi đi khám thì đã quá muộn. Trong hoàn cảnh đó cần an ủi bệnh nhân bằng niềm tin vào chuyên môn và nghề nghiệp: Có những xét nghiệm chính xác để phát hiện ung thư, và có những biện pháp điều trị đặc hiệu.</p>
@@ -78,7 +97,7 @@ export default function Navbar() {
 
             </Reveal>
 
-            
+
         </section>
     )
 }

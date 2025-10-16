@@ -1,4 +1,5 @@
 import Reveal from './Reveal.jsx';
+import AudioButton from './AudioButton.jsx';
 
 export default function TraditionalMedicine() {
   const base = import.meta.env.BASE_URL || '/'; // to work locally and on GitHub
@@ -9,6 +10,8 @@ export default function TraditionalMedicine() {
 
       <Reveal dir="right" delay={3} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
+          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+        
           <h2>KHÁI NIỆM UNG THƯ THEO Y HỌC CỔ TRUYỀN & Y HỌC HIỆN ĐẠI</h2>
           <p>Ung thư là một nhóm các bệnh liên quan đến việc tăng sinh tế bào một cách mất kiểm soát và những tế bào đó có khả năng xâm lấn những mô khác bằng cách phát triển trực tiếp vào mô lân cận hoặc di chuyển đến những bộ phận khác trong cơ thể ( di căn).</p>
           <p>Bệnh danh của ung thư trong YHCT là chứng nham, chứng nan, chứng lựu. Theo y học cổ truyền cơ chế bệnh ung thư phát sinh là do khí trệ, huyết ứ, đàm kết, tà độc, kinh lạc bế tắc, công năng tạng phủ mất điều hoà và khí huyết hư tổn.</p>
@@ -25,6 +28,8 @@ export default function TraditionalMedicine() {
           <img src={`${base}/images/traditionalMedicine.png`}/>
         </div>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
+          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+        
           <h2>CÁC PHƯƠNG PHÁP ĐIỀU TRỊ Y HỌC CỔ TRUYỀN</h2>
 
           <p>Điều trị bằng Y học cổ truyền gồm dùng thuốc và không dùng thuốc (châm cứu, xoa bóp bấm huyệt, dưỡng sinh khí công…). Trong thuốc có thuốc nam, bắc.</p>
@@ -36,6 +41,8 @@ export default function TraditionalMedicine() {
 
       <Reveal dir="right" delay={5} style={{ marginTop: '1%', display: 'flex', flexFlow: 'row wrap', alignItems: 'stretch', justifyContent: 'center' }}>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
+          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+        
           <h2>MỘT SỐ SAI LẦM TRONG ĐIỀU TRỊ UNG THƯ BẰNG Y HỌC CỔ TRUYỀN</h2>
           <p>Khi phát hiện bệnh thì không khám và điều trị theo chuyên khoa ung bướu mà tự ý hoặc nghe theo quảng cáo đi điều trị thuốc nam, thực phẩm chức năng bỏ lỡ cơ hội điều trị khỏi bệnh, khi bệnh nặng lên giai đoạn toàn phát mới quay lại bệnh viện thì không thể điều trị được nữa.</p>
           <p>Điều trị YHCT không đúng cách. Bệnh nhân tự dùng thuốc YHCT không phù hợp với tình trạng bệnh và  cơ thể của mình  nên không hỗ trợ được mà làm cho bệnh nặng lên.</p>
@@ -53,6 +60,8 @@ export default function TraditionalMedicine() {
           <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Ke64gGDpoLw?si=4kZ4Y_OutIZq-zJf" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
         <div className="card" style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'stretch', justifyContent: 'center', flex: 1, height: '45vh', minWidth: '350px', overflow: 'auto' }}>
+          <AudioButton src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" label="Play sample audio"></AudioButton>
+        
           <h2>MỘT SỐ KHUYẾN NGHỊ TRONG Y HỌC CỔ TRUYỀN</h2>
           <ul>
             <li>Bệnh nhân bị bệnh ung thư cần phải được khám chuyên khoa ung bướu của YHHĐ để được chẩn đoán chính xác về giải phẫu bệnh cũng như giai đoạn  bệnh. Từ đó mới có phương pháp và liệu trình  điều trị phù hợp.</li>
